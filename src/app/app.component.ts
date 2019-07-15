@@ -4,8 +4,6 @@ import { collegueMock } from './mock/collegues.mock';
   selector: 'app-root',
   template: `
   <app-collegue [col]=collegueMock></app-collegue>
-
-    
   `,
   styles: []
 })

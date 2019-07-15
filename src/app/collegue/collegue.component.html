@@ -4,9 +4,19 @@
 <p>Prenoms : {{ col.prenoms}}</p>
 <p>Date de Naissance : {{ col.dateDeNaissance}}</p>
 <p>PhotoUrl : {{ col.photoUrl}}</p>
-<input type="text" #saisie>
-{{ saisie.value }}
-<button (click)="saisie.focus()">Focus</button>
+<input type="text" #saisieTexte value={{col.nom}}>
+<button (click)="envoi(saisieTexte.value, Index)">Suivant</button>
+<button (click)="reset(saisieTexte)">Reset</button>
 
 
+<!-- 
+<input #newHero
+      (keyup.enter)="addHero(newHero.value)"
+      (blur)="addHero(newHero.value); newHero.value='' ">
 
+    <button (click)="addHero(newHero.value)">Add</button>
+<ul><li *ngFor="let value of col">{{value}}</li></ul>
+    
+
+
+-->
