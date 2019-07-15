@@ -1,4 +1,4 @@
-import { Collegue } from "../Models/Collegue";
+import { Collegue } from "../models/Collegue";
 
 export const collegueMock = 
     new Collegue('123', 'RAY', 'John', 
