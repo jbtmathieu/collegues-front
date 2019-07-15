@@ -1,4 +1,4 @@
-#TP - Mise en oeuvre de Angular CLI.
+#TP - Mise en oeuvre de Angular CLI
 
 # ColleguesFront
 
