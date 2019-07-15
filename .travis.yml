@@ -5,6 +5,8 @@ before_script:
   - npm install
 script: npm run build
 deploy:
+ # edge:
+   # branch: v1.8.47
   local-dir: dist/collegues-front
   provider: pages
   skip-cleanup: true
@@ -14,3 +16,5 @@ deploy:
     branch: master
 notifications:
   email: false
+
+  
