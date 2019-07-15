@@ -5,7 +5,7 @@
 <p>Date de Naissance : {{ col.dateDeNaissance}}</p>
 <p>PhotoUrl : {{ col.photoUrl}}</p>
 <input type="text" #saisieTexte value={{col.nom}}>
-<button (click)="envoi(saisieTexte.value, Index)">Suivant</button>
+<button (click)="envoi(saisieTexte.value)">Suivant</button>
 <button (click)="reset(saisieTexte)">Reset</button>
 
 
