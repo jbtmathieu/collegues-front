@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Collegue } from '../Models/Collegue';
-import { collegueMock } from '../mock/collegues.mock';
-//import { collegueMock } from '../mock/collegues.mock';
+import { Collegue } from '../models/Collegue';
+
 
 @Component({
   selector: 'app-collegue',
