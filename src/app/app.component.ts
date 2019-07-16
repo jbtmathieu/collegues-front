@@ -3,7 +3,8 @@ import { collegueMock } from './mock/collegues.mock';
 @Component({
   selector: 'app-root',
   template: `
-  <app-collegue [col]=collegueMock></app-collegue>
+ <!-- <app-collegue [col]=collegueMock></app-collegue> -->
+ <app-collegue-modifier [col]=collegueMock> </app-collegue-modifier>
   `,
   styles: []
 })
