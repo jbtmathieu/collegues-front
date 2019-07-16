@@ -18,6 +18,11 @@ export class CollegueComponent implements OnInit {
 
     }
   }
+  
+versNouveauCollab(){
+
+}
+
 reset(saisieTexte:HTMLInputElement){
   saisieTexte.value="";
   saisieTexte.focus();
