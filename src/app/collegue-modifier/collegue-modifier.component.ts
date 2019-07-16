@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Collegue } from '../Models/Collegue';
+import { Collegue } from '../models/Collegue';
 
 @Component({
   selector: 'app-collegue-modifier',
