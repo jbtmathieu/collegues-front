@@ -9,6 +9,7 @@
               <div class="col-sm-4 mb-2">
                 <img src="assets/img/img_avatar2.png" alt="" class="img-fluid shadow-sm">
               </div>
+              <ng-container *ngIf="modifierButtonView; else affichageNormalChamps">
               <div class="col-sm-8">
                 <dl class="row">
                   <dt class="col-sm-5">Matricule</dt>
@@ -17,18 +18,45 @@
                   <dd class="col-sm-7">{{col.nom}}</dd>
                   <dt class="col-sm-5">Prénoms</dt>
                   <dd class="col-sm-7">{{col.prenoms}}</dd>
+
+                  
                   <dt class="col-sm-5">Date de Naissance</dt>
                   <dd class="col-sm-7"><input type="text"></dd>
                   <dt class="col-sm-5">Emplacement photo</dt>
                   <dd class="col-sm-7"><input type="text"></dd>
+
                 </dl>
                 <dl class="row">
                     <dt></dt>
                     <dd class="col-sm-6"></dd>
-                    <dd class="col-sm-3"><a href="#" class="btn btn-warning"> Modifier </a></dd>
-                    <dd class="col-sm-3"><a href="#" class="btn btn-success"> Valider </a></dd>
+                    <dd class="col-sm-3"></dd>
+                    <dd class="col-sm-3"><a href="#" class="btn btn-success"(click)="validerButtonAction()"> Valider </a></dd>
                     </dl>
                 </div>
+              </ng-container>
+              <ng-template #affichageNormalChamps>
+                  <div class="col-sm-8">
+                      <dl class="row">
+                        <dt class="col-sm-5">Matricule</dt>
+                        <dd class="col-sm-7">{{col.matricule}}</dd>
+                        <dt class="col-sm-5">Nom</dt>
+                        <dd class="col-sm-7">{{col.nom}}</dd>
+                        <dt class="col-sm-5">Prénoms</dt>
+                        <dd class="col-sm-7">{{col.prenoms | uppercase}}</dd>
+                        <dt class="col-sm-5">Date de Naissance</dt>
+                        <dd class="col-sm-7">{{col.dateDeNaissance | date:'longDate' }}</dd>
+                        <dt class="col-sm-5">Emplacement photo</dt>
+                        <dd class="col-sm-7">{{col.photoUrl}}</dd>
+                </dl>
+                <dl class="row">
+                    <dt></dt>
+                    <dd class="col-sm-6"></dd>
+                    <dd class="col-sm-3"><a href="#" class="btn btn-warning" (click)="modifierButtonAction()"> Modifier </a></dd>
+                    <dd class="col-sm-3"></dd>
+                    </dl>
+                </div>
+                  </ng-template>
+
             </div>
           </div>
         </div>

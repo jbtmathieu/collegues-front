@@ -1,0 +1,12 @@
+<div class="col-sm-8">
+        <dl class="row">
+            <dt></dt>
+            <dd class="col-sm-5">Recherche par nom</dd>
+            <dd class="col-sm-5"><input type="text"></dd>
+            <dd class="col-sm-2"><a href="#" class="btn btn-success"(click)="quandOnRecherche()"> Rechercher </a></dd>
+        </dl>
+</div>
+<div *ngIf="recherche">
+<ul>
+        <li *ngFor="let obj of matriculeC">{{obj.matri}}</li>
+    </ul></div>

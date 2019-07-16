@@ -10,11 +10,21 @@ export class CollegueModifierComponent implements OnInit {
 
   @Input() col:Collegue;
   @Output() change:EventEmitter<string> = new EventEmitter<string>();
-
+  modifierButtonView=false;
 
   constructor() { }
 
+public modifierButtonAction(){
+  this.modifierButtonView=true;
+}
+
+public validerButtonAction(){
+  this.modifierButtonView=false;
+
+}
+
   ngOnInit() {
+    //this.modifierButtonView=true;
   }
 
 }
