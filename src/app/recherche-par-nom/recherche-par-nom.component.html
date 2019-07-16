@@ -2,8 +2,8 @@
         <dl class="row">
             <dt></dt>
             <dd class="col-sm-5">Recherche par nom</dd>
-            <dd class="col-sm-5"><input type="text"></dd>
-            <dd class="col-sm-2"><a href="#" class="btn btn-success"(click)="quandOnRecherche()"> Rechercher </a></dd>
+            <dd class="col-sm-5"><input type="text" #texteSaisie></dd>
+            <dd class="col-sm-2"><a href="#" class="btn btn-success"(click)="quandOnRecherche(texteSaisie)"> Rechercher </a></dd>
         </dl>
 </div>
 <div *ngIf="recherche">

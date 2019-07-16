@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Collegue } from '../models/Collegue';
+import { DataService } from '../services/data.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class CollegueComponent implements OnInit {
 
     }
   }
-  
+
 versNouveauCollab(){
 
 }
@@ -29,7 +30,7 @@ reset(saisieTexte:HTMLInputElement){
 
 }
   
-  constructor() { }
+  constructor(private _srv: DataService) { }
 
   ngOnInit() {
   }
