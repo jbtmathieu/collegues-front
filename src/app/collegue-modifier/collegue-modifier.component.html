@@ -19,11 +19,12 @@
                   <dt class="col-sm-5">Prénoms</dt>
                   <dd class="col-sm-7">{{col.prenoms | uppercase}}</dd>
 
-                  
+                  <form (ngSubmit)="submit()" #monForm="ngForm">
                   <dt class="col-sm-5">Date de Naissance</dt>
-                  <dd class="col-sm-7"><input type="text" value="{{col.ddn | date:'longDate' }}"></dd>
+                  <dd class="col-sm-7"><input type="text" [(ngModel)]="ddnPhoto.ddnField" value="{{col.ddn | date:'longDate' }}"></dd>
                   <dt class="col-sm-5">Emplacement photo</dt>
-                  <dd class="col-sm-7"><input type="text" value ={{col.photoUrl}}></dd>
+                  <dd class="col-sm-7"><input type="text" [(ngModel)]="ddnPhoto.photoUrlField" value ={{col.photoUrl}}></dd>
+                  </form>
 
                 </dl>
                 <dl class="row">

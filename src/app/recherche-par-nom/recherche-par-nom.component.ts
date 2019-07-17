@@ -24,7 +24,7 @@ export class RechercheParNomComponent implements OnInit {
     if (texteSaisi.value){
     this.recherche = true; 
     //this.texteSaisiEvt.emit(texteSaisi.value);
-    this._srv
+   this._srv
     .rechercherCollegueParNom(texteSaisi.value)
     .subscribe(matrRecup => {this.matricules = matrRecup}, (error:any) =>{
       /*this.matricules=[];

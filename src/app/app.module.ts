@@ -7,6 +7,7 @@ import { CollegueModifierComponent } from './collegue-modifier/collegue-modifier
 import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
 import { ColleguesAfficherComponent } from './collegues-afficher/collegues-afficher.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
