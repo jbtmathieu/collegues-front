@@ -26,13 +26,19 @@ export class RechercheParNomComponent implements OnInit {
     //this.texteSaisiEvt.emit(texteSaisi.value);
     this._srv
     .rechercherCollegueParNom(texteSaisi.value)
-    .subscribe(matrRecup => this.matricules = matrRecup);
+    .subscribe(matrRecup => {this.matricules = matrRecup}, (error:any) =>{
+      /*this.matricules=[];
+      this.matricules.push(error+" "+error.value);
+      this.matricules.push("123");*/
+    });
 
-    if ((this.matricules===[])) {
+    if (this.matricules.length === 0) {
+      this.matricules=[];
       this.matricules.push("Pas d'utilisateurs à ce nom.")
     }
     }else {
-      this.matricules.push("Zone de saisie vide")
+      this.matricules=[];
+      this.matricules.push("Zone de saisie vide");
     }
   }
 
