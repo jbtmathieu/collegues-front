@@ -27,8 +27,12 @@ export class RechercheParNomComponent implements OnInit {
     this._srv
     .rechercherCollegueParNom(texteSaisi.value)
     .subscribe(matrRecup => this.matricules = matrRecup);
-    }else {
 
+    if ((this.matricules===[])) {
+      this.matricules.push("Pas d'utilisateurs à ce nom.")
+    }
+    }else {
+      this.matricules.push("Zone de saisie vide")
     }
   }
 
@@ -36,7 +40,6 @@ export class RechercheParNomComponent implements OnInit {
 
   ngOnInit() {
     
- 
   }
 
 }

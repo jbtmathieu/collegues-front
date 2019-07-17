@@ -17,13 +17,13 @@
                   <dt class="col-sm-5">Nom</dt>
                   <dd class="col-sm-7">{{col.nom}}</dd>
                   <dt class="col-sm-5">Prénoms</dt>
-                  <dd class="col-sm-7">{{col.prenoms}}</dd>
+                  <dd class="col-sm-7">{{col.prenoms | uppercase}}</dd>
 
                   
                   <dt class="col-sm-5">Date de Naissance</dt>
-                  <dd class="col-sm-7"><input type="text"></dd>
+                  <dd class="col-sm-7"><input type="text" value="{{col.ddn | date:'longDate' }}"></dd>
                   <dt class="col-sm-5">Emplacement photo</dt>
-                  <dd class="col-sm-7"><input type="text"></dd>
+                  <dd class="col-sm-7"><input type="text" value ={{col.photoUrl}}></dd>
 
                 </dl>
                 <dl class="row">

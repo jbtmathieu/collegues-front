@@ -1,5 +1,5 @@
 import { Collegue } from "../models/Collegue";
 
 export const collegueMock = 
-    new Collegue('123', 'RAY', 'John', 
-    new Date("1993-6-12") ,'http://path/toImg/');
+    new Collegue('12345', 'NAME', 'First Name', 
+    new Date("1111-11-11") ,'http://path/toImg/');
