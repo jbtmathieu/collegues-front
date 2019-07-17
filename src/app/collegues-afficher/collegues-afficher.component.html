@@ -1,0 +1,28 @@
+<h1>Collègues</h1>
+
+<table>
+  <thead>
+    <th></th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let coll of collegues">
+    <td> {{coll.matricule}}</td>
+      <td> {{coll.nom}}</td>
+      <td> {{coll.prenoms}}</td>
+      <td> {{coll.ddn }}</td>
+      <td> {{coll.email}}</td>
+      <td> {{coll.photoUrl}}</td>
+      <td>
+        <button (click)="selectionner(coll)">Sélectionner</button>
+      </td>
+    </tr>
+
+
+    <tr *ngFor="let str of matricules">
+        <td> {{str.body}}</td>
+        </tr>
+  </tbody>
+
+</table>

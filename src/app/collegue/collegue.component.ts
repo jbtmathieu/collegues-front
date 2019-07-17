@@ -33,6 +33,7 @@ reset(saisieTexte:HTMLInputElement){
   constructor(private _srv: DataService) { }
 
   ngOnInit() {
+    
   }
 
 }

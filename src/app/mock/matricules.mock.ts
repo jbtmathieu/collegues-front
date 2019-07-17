@@ -1,2 +1,2 @@
 
-export const matriculesMock:any [] = [ {matri:`12345`}, {matri:`12345`}, {matri:`12345`}, {matri:`12345`}]; 
+export const matriculesMock:string [] = [ `12345`, `12345`, `12345`, `12345`]; 

@@ -5,17 +5,21 @@ import { AppComponent } from './app.component';
 import { CollegueComponent } from './collegue/collegue.component';
 import { CollegueModifierComponent } from './collegue-modifier/collegue-modifier.component';
 import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
+import { ColleguesAfficherComponent } from './collegues-afficher/collegues-afficher.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     CollegueComponent,
     CollegueModifierComponent,
-    RechercheParNomComponent
+    RechercheParNomComponent,
+    ColleguesAfficherComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

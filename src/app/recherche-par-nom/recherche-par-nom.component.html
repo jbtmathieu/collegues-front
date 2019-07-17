@@ -2,11 +2,15 @@
         <dl class="row">
             <dt></dt>
             <dd class="col-sm-5">Recherche par nom</dd>
-            <dd class="col-sm-5"><input type="text" #texteSaisie></dd>
-            <dd class="col-sm-2"><a href="#" class="btn btn-success"(click)="quandOnRecherche(texteSaisie)"> Rechercher </a></dd>
+            <dd class="col-sm-5"><input type="text" #texteSaisi></dd>
+            <dd class="col-sm-2"><a href="#" class="btn btn-success" (click)="quandOnRecherche(texteSaisi)"> Rechercher </a></dd>
         </dl>
 </div>
-<div *ngIf="recherche">
+ <!--<div  *ngIf="recherche" > 
 <ul>
-        <li *ngFor="let obj of matriculeC">{{obj.matri}}</li>
-    </ul></div>
+        <li *ngFor="let obj of matriculeC">{{obj}}</li>
+    </ul>
+</div>-->
+    <p *ngFor="let obj of matricules">
+        {{obj}}
+      </p>
