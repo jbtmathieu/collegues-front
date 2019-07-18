@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Collegue } from '../models/Collegue';
 import { matriculesMock } from '../mock/matricules.mock';
 import { collegueMock } from '../mock/collegues.mock';
-import { filter, map } from 'rxjs/operators';
+import { filter, map, catchError } from 'rxjs/operators';
 import { Observable, of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
+  [x: string]: any;
 collegues: Collegue[]=[];
 
 private subCollegueSelectionne = new Subject<Collegue>();
@@ -59,9 +60,50 @@ recupMatricule() : Observable<string>{
       )
     );
   }
-  rechercherParNom(nom: string): string[]  {
-    // TODO retourner une liste de matricules fictifs à partir du fichier `src/app/mock/matricules.mock.ts`. 
-    return matriculesMock; 
+
+
+  rechercherCollegueParMatricule(nom:string): Observable<Collegue> {
+    
+    var URL = 'https://collegues-api-jpa.herokuapp.com/collegues?matricule='+nom;
+    return this.httpClient
+    .get<Collegue>(URL);
+
+
+  }
+
+  modifier(matricule:string, collegue:Collegue): Observable<string[]> {
+    
+    var address = 'https://collegues-api-jpa.herokuapp.com/collegues/'+matricule;
+    return this.httpClient
+    .get<string[]>(address)
+    .pipe(
+      map(tableauMatriculeDuServeur =>
+        tableauMatriculeDuServeur.map(unMatricule => {
+          return unMatricule;
+        })
+      )
+    );
+  }
+
+
+creerCollegue(coll:Collegue): Observable<string[]> {
+  return this.httpClient.post<Collegue>('https://collegues-api-jpa.herokuapp.com/collegues?creer', coll)
+    .pipe(
+      catchError(this.handleError('addCollegue', Collegue))
+    );
+}
+
+  rechercherParNom(nom: string): Observable<string[]>  {
+    var address = 'https://collegues-api-jpa.herokuapp.com/collegues?name='+nom;
+    return this.httpClient
+    .get<string[]>(address)
+    .pipe(
+      map(tableauMatriculeDuServeur =>
+        tableauMatriculeDuServeur.map(unMatricule => {
+          return unMatricule;
+        })
+      )
+    );
   }
 
   recupererCollegueCourant(): Collegue {

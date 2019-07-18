@@ -1,0 +1,118 @@
+
+<section class="container-fluid">
+    <div class="row">
+           
+      <div class="col">
+        <div class="card shadow-sm">
+         <div class="card-header"></div>
+          <div class="card-body text-dark">
+            <div class="row">
+              <div class="col-sm-4">
+                <img src="assets/img/img_avatar2.png" alt="" class="img-fluid shadow-sm">
+              </div>
+
+
+              <ng-container *ngIf="modifierButtonView; else affichageNormalChamps">
+            
+              <div class="col-sm-8">
+                    <form  #formDdnPhoto="ngForm">
+                <table class="row">
+    
+                  <th class="col-sm-5">Matricule</th>
+                  <td class="col-sm-7">{{col.matricule}}</td>
+                  <th class="col-sm-5">Nom</th>
+                  <td class="col-sm-7">{{col.nom}}</td>
+                  <th class="col-sm-5">Prénoms</th>
+                  <td class="col-sm-7">{{col.prenoms | uppercase}}</td>
+                  <th class="col-sm-5">Date de Naissance</th>
+                  <td class="col-sm-7">{{col.ddn | date:'longDate' }}</td>
+
+                  <th class="col-sm-5">Email</th>
+                  <td class="col-sm-7"><input type="text"  value="{{col.email}}" required
+                    name="emailField" [(ngModel)]="emailPhotoModel.email" #emailField="ngModel" required minlength="3" [ngModelOptions]="{updateOn: 'change'}"
+                    >
+                    <span class="tooltiptext"> 
+                        <p *ngIf="emailField.invalid && emailField.dirty">
+                            <td> Email Invalide</td>
+                        </p>
+                    </span>
+                </td>
+                  
+                  <th class="col-sm-5">Emplacement photo</th>
+                  <td class="col-sm-7"><input type="text"  value ={{col.photoUrl}} required
+                    name="photoField" [(ngModel)]="emailPhotoModel.photoUrl" #photoField="ngModel" required minlength="7" [ngModelOptions]="{updateOn: 'change'}"
+                    >
+                    <span class="tooltiptext">
+                         <p *ngIf="photoField.invalid && photoField.dirty">
+                             <td> Champ photo Invalide</td>
+                            </p>
+                        </span>
+                    </td>
+
+                </table>
+                <table class="row">
+                    <th class="col-sm-6"></th>
+                    <td class="col-sm-3"> 
+                        <ng-container *ngIf="(emailField.valid && photoField.valid) || (emailField.untouched && photoField.untouched); else modifnonValide">
+                           
+                            <p> <a href="#" class="btn btn-success"(click)="validerButtonAction()"> Valider </a></p>
+                        </ng-container>
+                        <ng-template #modifnonValide>
+                                <p> <button btn btn-success disabled>Valider</button></p>
+                        </ng-template>
+                    </td>
+                    </table>
+              
+
+            </form>
+                </div>
+              </ng-container>
+
+              <ng-template #affichageNormalChamps>
+                  <div class="col-sm-8">
+                      <table class="row">
+                        <th class="col-sm-5">Matricule</th>
+                        <td class="col-sm-7">{{col.matricule}}</td>
+                        <th class="col-sm-5">Nom</th>
+                        <td class="col-sm-7">{{col.nom}}</td>
+                        <th class="col-sm-5">Prénoms</th>
+                        <td class="col-sm-7">{{col.prenoms | uppercase}}</td>
+                        <th class="col-sm-5">Date de Naissance</th>
+                        <td class="col-sm-7">{{col.ddn | date:'longDate' }}</td>
+                        <ng-container *ngIf="emailPhotoModel.email; else elseDdnUnmod"> 
+                            <th class="col-sm-5">Email</th>
+                            <td class="col-sm-7">{{emailPhotoModel.email }}</td> 
+                        </ng-container>
+                        <ng-template #elseDdnUnmod> 
+                            <th class="col-sm-5">Email</th> 
+                            <td class="col-sm-7">{{col.email}}</td> 
+                        </ng-template>
+                        
+                        <ng-container *ngIf="emailPhotoModel.photoUrl; else elsePhotoUrlUnmod">
+                            <th class="col-sm-5">Emplacement photo</th>
+                            <td class="col-sm-7">{{emailPhotoModel.photoUrl}}</td>
+                        </ng-container>
+                        <ng-template #elsePhotoUrlUnmod> 
+                            <th class="col-sm-5">Emplacement photo</th>
+                            <td class="col-sm-7">{{col.photoUrl}}</td>
+                        </ng-template>
+                        <th class="col-sm-5"></th>
+                        <td class="col-sm-7"></td>
+                </table>
+                <table class="row">
+                    <th></th>
+                    <td class="col-sm-6"> </td>
+                    <td class="col-sm-3"> <a href="#" class="btn btn-warning" (click)="modifierButtonAction()"> Modifier </a></td>
+                    <td class="col-sm-3"> </td>
+                    </table>
+                </div>
+                  </ng-template>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+</section>

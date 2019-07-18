@@ -1,0 +1,10 @@
+input.ng-dirty {
+    background-color: lightgreen;
+    color: white;
+  }
+  
+  input.ng-dirty.ng-invalid {
+    background-color: palegoldenrod;
+    color: black;
+  }
+  

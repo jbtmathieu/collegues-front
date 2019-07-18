@@ -8,6 +8,7 @@ import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.
 import { ColleguesAfficherComponent } from './collegues-afficher/collegues-afficher.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CollegueFormDdnPhotoComponent } from './collegue-form-ddn-photo/collegue-form-ddn-photo.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     CollegueComponent,
     CollegueModifierComponent,
     RechercheParNomComponent,
-    ColleguesAfficherComponent
+    ColleguesAfficherComponent,
+    CollegueFormDdnPhotoComponent
   ],
   imports: [
     BrowserModule,
