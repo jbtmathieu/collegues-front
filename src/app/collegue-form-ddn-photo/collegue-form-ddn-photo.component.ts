@@ -54,7 +54,7 @@ public validerButtonAction(){
   }
 
   ngOnDestroy(){
-    this.actionSub.unsubscribe();
+    //this.actionSub.unsubscribe();
   }
 
 }

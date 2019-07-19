@@ -1,0 +1,23 @@
+
+<h2>Gallerie</h2>
+<section class="container-fluid">
+        
+    <div class="row">
+            <div *ngFor="let item of photoMatricule | keyvalue"> 
+        <div class="col">
+            
+                <div class="card shadow-sm">
+                    <div class="card-header">{{item.key}}          
+                    </div>
+                    
+                        <div class="card-body text-dark" >
+            <img src="{{item.value}}" alt="{{item.value}}" class="img-fluid shadow-sm">               
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!--button (click)="selectionner()">Sélectionner</!--button>-->
+      

@@ -5,6 +5,8 @@ import { collegueMock } from '../mock/collegues.mock';
 import { filter, map, catchError } from 'rxjs/operators';
 import { Observable, of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { PhotoMatricule } from '../models/PhotoMatricule';
+import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -105,6 +107,23 @@ creerCollegue(coll:Collegue): Observable<string[]> {
       )
     );
   }
+
+  recupererMatriculePhoto(): Observable<Map<string, string>>{
+    var URL = 'https://collegues-api-jpa.herokuapp.com/collegues/photos';
+     
+    return this.httpClient
+        .get<any>(URL)
+        .pipe(map(el =>{
+          let mapPhoto = new Map<string, string>();
+          for(let key in el) {
+            mapPhoto.set(key, el[key]);
+          }
+          return mapPhoto;
+        }));
+  
+    }
+  
+
 
   recupererCollegueCourant(): Collegue {
     // TODO retourner le collègue fictif à partir du fichier `src/app/mock/collegues.mock.ts`.

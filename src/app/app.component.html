@@ -1,17 +1,28 @@
- <!-- <app-collegue [col]=collegueMock></app-collegue> -->
- <app-collegue-form-ddn-photo></app-collegue-form-ddn-photo>
- <div class="container-fluid">
-    <div class="row">
-    
-    <div class="col">
-        <app-recherche-par-nom></app-recherche-par-nom>
-        
-    </div>
-    <div class="col">
-    <app-collegue-modifier> </app-collegue-modifier></div>
-   
-    </div>    
-   </div>
+ 
+ <header>
+    <!-- Entête -->
+</header>
 
-   <app-collegues-afficher ></app-collegues-afficher>
+<app-menu> </app-menu>
+
+      <main>
+
+  <!-- le composant défini dans la route courante va être inséré à cet endroit -->
+
+    <!-- au regard de la configuration précédente, 
+        /page1 va insérer le composant AComponent à cet emplacement
+        /page2 a insérer le composant BComponent à cet emplacement
+    -->
+    
+    <router-outlet>
+     <!-- <app-accueil></app-accueil>-->
+    </router-outlet>
+  
+
+    <!-- <app-collegue [col]=collegueMock></app-collegue> -->
+  </main>
+  <footer>
+       <!-- Pied de page -->
+  </footer>
+
    
