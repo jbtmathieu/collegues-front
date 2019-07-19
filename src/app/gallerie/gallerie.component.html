@@ -1,23 +1,61 @@
 
 <h2>Gallerie</h2>
-<section class="container-fluid">
+<ng-container *ngFor="let obj of photoMatricule | keyvalue">
         
-    <div class="row">
-            <div *ngFor="let item of photoMatricule | keyvalue"> 
-        <div class="col">
-            
-                <div class="card shadow-sm">
-                    <div class="card-header">{{item.key}}          
-                    </div>
-                    
-                        <div class="card-body text-dark" >
-            <img src="{{item.value}}" alt="{{item.value}}" class="img-fluid shadow-sm">               
-                        </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
+       
         <!--button (click)="selectionner()">Sélectionner</!--button>-->
+   
+
+ <!--<div  *ngIf="recherche" > 
+<ul>
+        <li *ngFor="let obj of matriculeC">{{obj}}</li>
+    </ul>
+</div>-->
+    
       
+
+<section class="container-fluid">
+        <div class="row-sm-8">
+               
+          <div class="col-sm-8">
+            <div class="card shadow-sm">
+             <div class="card-header">{{obj.key}}</div>
+              <div class="card-body text-dark">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <img src="{{obj.value}}" alt="" class="img-fluid shadow-sm" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  </div>
+    
+    
+                 
+                  <div class="collapse" id="affichageUtilisateur">
+                    <div class="card card-body">
+                      <div class="col-sm-8">
+                          <table class="row">
+                            <th class="col-sm-5">Matricule</th>
+                            <td class="col-sm-7">{{col.matricule}}</td>
+                            <th class="col-sm-5">Nom</th>
+                            <td class="col-sm-7">{{col.nom}}</td>
+                            <th class="col-sm-5">Prénoms</th>
+                            <td class="col-sm-7">{{col.prenoms | uppercase}}</td>
+                            <th class="col-sm-5">Date de Naissance</th>
+                            <td class="col-sm-7">{{col.ddn | date:'longDate' }}</td>
+                            <th class="col-sm-5">Email</th> 
+                            <td class="col-sm-7">{{col.email}}</td> 
+                            <th class="col-sm-5">Emplacement photo</th>
+                            <td class="col-sm-7">{{ col.photoUrl}}</td>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+          </div>
+ 
+    </div>
+    </div>
+</div>
+</div>
+
+    </section>
+    
+   
+    

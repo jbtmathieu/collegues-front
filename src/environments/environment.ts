@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // ajout d'une URL backend en mode développement
-  backendUrl: 'https://collegues-api-jpa.herokuapp.com/'
+  backendUrl: 'http://localhost:8080'
 };
 
 /*

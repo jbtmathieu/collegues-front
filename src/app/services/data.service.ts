@@ -7,6 +7,7 @@ import { Observable, of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { PhotoMatricule } from '../models/PhotoMatricule';
 import { stringify } from '@angular/compiler/src/util';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,7 @@ recupMatricule() : Observable<string>{
 
   getCollegues(): Observable<Collegue[]> {
     return this.httpClient
-      .get<Collegue[]>('https://collegues-api-jpa.herokuapp.com/collegues?namefull=MARTIN')
+      .get<Collegue[]>(environment.backendUrl+'/collegues?namefull=MARTIN')
       .pipe(
         map(tableauColleguesDuServeur =>
           tableauColleguesDuServeur.map(unCollegue => {
@@ -51,7 +52,7 @@ recupMatricule() : Observable<string>{
 
   rechercherCollegueParNom(nom:string): Observable<string[]> {
     
-    var address = 'https://collegues-api-jpa.herokuapp.com/collegues?name='+nom;
+    var address = environment.backendUrl+'/collegues?name='+nom;
     return this.httpClient
     .get<string[]>(address)
     .pipe(
@@ -66,7 +67,9 @@ recupMatricule() : Observable<string>{
 
   rechercherCollegueParMatricule(nom:string): Observable<Collegue> {
     
-    var URL = 'https://collegues-api-jpa.herokuapp.com/collegues?matricule='+nom;
+
+    var URL = environment.backendUrl+'/collegues?matricule='+nom;
+    
     return this.httpClient
     .get<Collegue>(URL);
 
@@ -75,7 +78,7 @@ recupMatricule() : Observable<string>{
 
   modifier(matricule:string, collegue:Collegue): Observable<string[]> {
     
-    var address = 'https://collegues-api-jpa.herokuapp.com/collegues/'+matricule;
+    var address = environment.backendUrl+'/collegues/'+matricule;
     return this.httpClient
     .get<string[]>(address)
     .pipe(
@@ -89,14 +92,14 @@ recupMatricule() : Observable<string>{
 
 
 creerCollegue(coll:Collegue): Observable<string[]> {
-  return this.httpClient.post<Collegue>('https://collegues-api-jpa.herokuapp.com/collegues?creer', coll)
+  return this.httpClient.post<Collegue>(environment.backendUrl+'/collegues?creer', coll)
     .pipe(
       catchError(this.handleError('addCollegue', Collegue))
     );
 }
 
   rechercherParNom(nom: string): Observable<string[]>  {
-    var address = 'https://collegues-api-jpa.herokuapp.com/collegues?name='+nom;
+    var address = environment.backendUrl+'/collegues?name='+nom;
     return this.httpClient
     .get<string[]>(address)
     .pipe(
@@ -109,7 +112,7 @@ creerCollegue(coll:Collegue): Observable<string[]> {
   }
 
   recupererMatriculePhoto(): Observable<Map<string, string>>{
-    var URL = 'https://collegues-api-jpa.herokuapp.com/collegues/photos';
+    var URL = environment.backendUrl+'/collegues/photos';
      
     return this.httpClient
         .get<any>(URL)
