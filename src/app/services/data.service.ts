@@ -40,7 +40,7 @@ recupMatricule() : Observable<string>{
 
   getCollegues(): Observable<Collegue[]> {
     return this.httpClient
-      .get<Collegue[]>(environment.backendUrl+'/collegues?namefull=MARTIN')
+      .get<Collegue[]>(environment.backendUrl+'/collegues?namefull=MARTIN', {withCredentials:true})
       .pipe(
         map(tableauColleguesDuServeur =>
           tableauColleguesDuServeur.map(unCollegue => {
@@ -52,9 +52,9 @@ recupMatricule() : Observable<string>{
 
   rechercherCollegueParNom(nom:string): Observable<string[]> {
     
-    var address = environment.backendUrl+'/collegues?name='+nom;
+    var URL = environment.backendUrl+'/collegues?name='+nom;
     return this.httpClient
-    .get<string[]>(address)
+    .get<string[]>(URL, {withCredentials:true})
     .pipe(
       map(tableauMatriculeDuServeur =>
         tableauMatriculeDuServeur.map(unMatricule => {
@@ -71,16 +71,16 @@ recupMatricule() : Observable<string>{
     var URL = environment.backendUrl+'/collegues?matricule='+nom;
     
     return this.httpClient
-    .get<Collegue>(URL);
+    .get<Collegue>(URL, {withCredentials:true});
 
 
   }
 
   modifier(matricule:string, collegue:Collegue): Observable<string[]> {
     
-    var address = environment.backendUrl+'/collegues/'+matricule;
+    var URL = environment.backendUrl+'/collegues/'+matricule;
     return this.httpClient
-    .get<string[]>(address)
+    .get<string[]>(URL, {withCredentials:true})
     .pipe(
       map(tableauMatriculeDuServeur =>
         tableauMatriculeDuServeur.map(unMatricule => {
@@ -92,16 +92,16 @@ recupMatricule() : Observable<string>{
 
 
 creerCollegue(coll:Collegue): Observable<string[]> {
-  return this.httpClient.post<Collegue>(environment.backendUrl+'/collegues?creer', coll)
+  return this.httpClient.post<Collegue>(environment.backendUrl+'/collegues?creer', coll, {withCredentials:true})
     .pipe(
       catchError(this.handleError('addCollegue', Collegue))
     );
 }
 
   rechercherParNom(nom: string): Observable<string[]>  {
-    var address = environment.backendUrl+'/collegues?name='+nom;
+    var URL = environment.backendUrl+'/collegues?name='+nom;
     return this.httpClient
-    .get<string[]>(address)
+    .get<string[]>(URL, {withCredentials:true})
     .pipe(
       map(tableauMatriculeDuServeur =>
         tableauMatriculeDuServeur.map(unMatricule => {
@@ -115,7 +115,7 @@ creerCollegue(coll:Collegue): Observable<string[]> {
     var URL = environment.backendUrl+'/collegues/photos';
      
     return this.httpClient
-        .get<any>(URL)
+        .get<any>(URL, {withCredentials:true})
         .pipe(map(el =>{
           let mapPhoto = new Map<string, string>();
           for(let key in el) {

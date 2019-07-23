@@ -5,6 +5,11 @@
             <a class="navbar-brand" routerLink="/accueil">Accueil<span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" routerLink="/gallerie">Gallerie</a>
             <a class="nav-item nav-link" routerLink="/accueil">A propos</a>
+            <a class="nav-item nav-link" routerLink="/login">Login</a>
+            <!--div class="right" *ngIf="notLogged"-->
+            
+            <a class="btn btn-warning" (click)="deconnexion()" routerLink="/login">Logout</a>
           </div>
+          
         </div>
       </nav>

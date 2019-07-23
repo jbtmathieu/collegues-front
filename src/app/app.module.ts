@@ -14,7 +14,9 @@ import { RouterModule } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { MenuComponent } from './menu/menu.component';
 import { GallerieComponent } from './gallerie/gallerie.component';
-
+import { AuthentificationComponent } from './authentification/authentification.component';
+import { ReactiveFormsModule } from '@angular/forms'
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,14 +28,18 @@ import { GallerieComponent } from './gallerie/gallerie.component';
     CollegueFormDdnPhotoComponent,
     AccueilComponent,
     MenuComponent,
-    GallerieComponent
+    GallerieComponent,
+    AuthentificationComponent,
+    
   ],
   imports: [
     BrowserModule,
     NgbModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    CommonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
