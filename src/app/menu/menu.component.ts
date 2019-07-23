@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,10 +10,14 @@ import { AuthService } from '../auth.service';
 export class MenuComponent implements OnInit {
 
   notLogged = false;
-  constructor(private authservice:AuthService) { }
+  userNameLogged:String=null;
+
+
+  constructor(private authservice:AuthService, private _srv:DataService) { }
 
 deconnexion(){
   this.authservice.logout().subscribe();
+  this.userNameLogged= null;
 }
 
 
@@ -20,6 +25,18 @@ deconnexion(){
     if(localStorage.getItem('currentUser')){
       this.notLogged=true;
     }
+
+
+
+    this._srv
+    .recupUser()
+    .subscribe(userSelected => {
+      if ((userSelected) != null){
+      this.userNameLogged = userSelected.pseudo;
+      }
+  })
+
   }
+  
 
 }

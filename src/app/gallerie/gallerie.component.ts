@@ -13,6 +13,8 @@ export class GallerieComponent implements OnInit {
   photoMatricule : Map<string, string>;
   modifierCollab=false;
   col:Collegue = collegueMock;
+  errorMsg:String=null;
+  
 
   constructor(private _srv:DataService) { }
 
@@ -23,9 +25,8 @@ export class GallerieComponent implements OnInit {
       .subscribe(colR=>{
         this.col=colR;
       })
-  
-
       }else this.modifierCollab = false;
+      
     }
   
   ngOnInit() {

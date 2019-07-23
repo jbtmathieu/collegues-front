@@ -1,5 +1,4 @@
  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
         <div class="row">
           <div class="navbar-nav">
             <a class="navbar-brand" routerLink="/accueil">Accueil<span class="sr-only">(current)</span></a>
@@ -7,9 +6,10 @@
             <a class="nav-item nav-link" routerLink="/accueil">A propos</a>
             <a class="nav-item nav-link" routerLink="/login">Login</a>
             <!--div class="right" *ngIf="notLogged"-->
-            
-            <a class="btn btn-warning" (click)="deconnexion()" routerLink="/login">Logout</a>
-          </div>
-          
+            <div class="pull-right">
+            <a class="btn btn-warning right" (click)="deconnexion()" routerLink="/login">Logout</a>
+            {{userNameLogged}}
+            </div>
+          </div> 
         </div>
       </nav>

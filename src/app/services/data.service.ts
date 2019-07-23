@@ -3,11 +3,12 @@ import { Collegue } from '../models/Collegue';
 import { matriculesMock } from '../mock/matricules.mock';
 import { collegueMock } from '../mock/collegues.mock';
 import { filter, map, catchError } from 'rxjs/operators';
-import { Observable, of, Subject } from 'rxjs';
+import { Observable, of, Subject, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { PhotoMatricule } from '../models/PhotoMatricule';
 import { stringify } from '@angular/compiler/src/util';
 import {environment} from '../../environments/environment';
+import { Utilisateur } from '../models/Utilisateur';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,15 @@ collegues: Collegue[]=[];
 
 private subCollegueSelectionne = new Subject<Collegue>();
 private subMatriculeSelectionne = new Subject<string>();
+private subUserSelectionne = new BehaviorSubject<Utilisateur>(null);
+
 
 publier(coll:Collegue){
   this.subCollegueSelectionne.next(coll);
+}
+
+publierUser(user:Utilisateur){
+  this.subUserSelectionne.next(user);
 }
 
 publierMatricule(str:string){
@@ -29,6 +36,10 @@ publierMatricule(str:string){
 
 recup() : Observable<Collegue>{
   return this.subCollegueSelectionne.asObservable();
+}
+
+recupUser() : Observable<Utilisateur>{
+  return this.subUserSelectionne.asObservable();
 }
 
 recupMatricule() : Observable<string>{

@@ -4,14 +4,16 @@ import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Utilisateur } from './models/Utilisateur';
+import { DataService } from './services/data.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private currentUserSubject: BehaviorSubject<Utilisateur>;
+  private currentUserSubject: BehaviorSubject<Utilisateur>=new BehaviorSubject<Utilisateur>(null);
     public currentUser: Observable<Utilisateur>;
-    constructor(private http: HttpClient) {
+
+    constructor(private http: HttpClient, private _srv:DataService) {
       this.currentUserSubject = new BehaviorSubject<Utilisateur>(JSON.parse(localStorage.getItem('currentUser')));
-      this.currentUser = this.currentUserSubject.asObservable();
+      //this.currentUser = this.currentUserSubject.asObservable();
   }
 
   public get currentUserValue(): Utilisateur {
@@ -25,10 +27,12 @@ export class AuthService {
               // login successful if there's a jwt token in the response
               if (user && user.token) {
                   // store user details and jwt token in local storage to keep user logged in between page refreshes
-                  localStorage.setItem('currentUser', JSON.stringify(user));
+                  //localStorage.setItem('currentUser', JSON.stringify(user));
+                  console.log(user);
                   this.currentUserSubject.next(user);
               }
-
+              console.log(user);
+              this._srv.publierUser(user);
               return user;
           }));
   }
@@ -39,7 +43,7 @@ export class AuthService {
       localStorage.removeItem('token');
       sessionStorage.removeItem('token');
       //this.currentUserSubject.next(null);
-      return this.http.get<any>('http://localhost:8080/logout',{withCredentials:true});
+      return this.http.get<any>(environment.backendUrl+'/logout',{withCredentials:true});
           
   }
   
