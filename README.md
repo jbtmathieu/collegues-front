@@ -2,7 +2,7 @@
 
 # ColleguesFront[![Build Status](https://travis-ci.org/jbtmathieu/collegues-front.svg?branch=master)]
 (https://travis-ci.org/jbtmathieu/collegues-front)
-http://jbtmathieu.github.github.io/collegues-front
+http://jbtmathieu.github.io/collegues-front
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
 
