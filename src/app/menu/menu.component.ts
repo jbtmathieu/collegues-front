@@ -22,17 +22,11 @@ deconnexion(){
 
 
   ngOnInit() {
-    if(localStorage.getItem('currentUser')){
-      this.notLogged=true;
-    }
-
-
-
     this._srv
-    .recupUser()
+    .recup()
     .subscribe(userSelected => {
       if ((userSelected) != null){
-      this.userNameLogged = userSelected.pseudo;
+      this.userNameLogged = userSelected.nom+' '+userSelected.prenoms;
       }
   })
 

@@ -137,7 +137,12 @@ creerCollegue(coll:Collegue): Observable<string[]> {
   
     }
   
-
+getMe(){
+  var URL = environment.backendUrl+'/collegues/me';
+     
+  return this.httpClient
+      .get<Collegue>(URL, {withCredentials:true})
+}
 
   recupererCollegueCourant(): Collegue {
     // TODO retourner le collègue fictif à partir du fichier `src/app/mock/collegues.mock.ts`.

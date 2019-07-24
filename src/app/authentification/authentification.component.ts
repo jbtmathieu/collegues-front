@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthService } from '../auth.service';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class AuthentificationComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private authenticationService: AuthService) {}
+        private authenticationService: AuthService,
+        private _srv:DataService) {}
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
@@ -57,5 +59,10 @@ export class AuthentificationComponent implements OnInit {
                     this.error = error;
                     this.loading = false;
                 });
+
+        this._srv.getMe().subscribe(colRecup =>{
+            if (colRecup)
+            return colRecup;
+        })
     }
 }

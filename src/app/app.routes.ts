@@ -6,6 +6,7 @@ import { AuthentificationComponent } from './authentification/authentification.c
 
 
 export const ROUTES: Routes = [
+    { path: 'index', component: AccueilComponent },
     { path: 'accueil', component: AccueilComponent },
     { path: 'gallerie', component: GallerieComponent },
     { path: 'apropos', component: AccueilComponent },
